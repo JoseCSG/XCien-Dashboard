@@ -47,8 +47,8 @@ export function DashboardSidebar() {
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton
                     asChild
+                    active={activeItem === item.id}
                     onClick={() => setActiveItem(item.id)}
-                    className={activeItem === item.id ? "bg-secondary" : ""}
                   >
                     <Link to={item.path} className="flex items-center gap-2">
                       <item.icon className="h-5 w-5" />
