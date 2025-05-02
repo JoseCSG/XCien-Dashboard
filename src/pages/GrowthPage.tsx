@@ -10,20 +10,20 @@ import { useState } from "react";
 
 // Datos de ejemplo
 const mockComparisonData = [
-  { name: "Norte", ingresos: 85, visitantes: 42, conversion: 12 },
-  { name: "Centro", ingresos: 120, visitantes: 60, conversion: 18 },
-  { name: "Sur", ingresos: 65, visitantes: 38, conversion: 9 },
-  { name: "Este", ingresos: 78, visitantes: 45, conversion: 14 },
+  { name: "Norte", bandwidth: 850, latency: 24, availability: 99.2 },
+  { name: "Centro", bandwidth: 1200, latency: 18, availability: 99.8 },
+  { name: "Sur", bandwidth: 650, latency: 32, availability: 98.5 },
+  { name: "Este", bandwidth: 780, latency: 22, availability: 99.4 },
 ];
 
 const mockGrowthData = [
-  { month: "Ene", ingresos: 65, visitantes: 28 },
-  { month: "Feb", ingresos: 59, visitantes: 32 },
-  { month: "Mar", ingresos: 80, visitantes: 41 },
-  { month: "Abr", ingresos: 81, visitantes: 39 },
-  { month: "May", ingresos: 95, visitantes: 48 },
-  { month: "Jun", ingresos: 78, visitantes: 43 },
-  { month: "Jul", ingresos: 110, visitantes: 52 },
+  { month: "Ene", ancho_de_banda: 650, conexiones: 280 },
+  { month: "Feb", ancho_de_banda: 590, conexiones: 320 },
+  { month: "Mar", ancho_de_banda: 800, conexiones: 410 },
+  { month: "Abr", ancho_de_banda: 810, conexiones: 390 },
+  { month: "May", ancho_de_banda: 950, conexiones: 480 },
+  { month: "Jun", ancho_de_banda: 780, conexiones: 430 },
+  { month: "Jul", ancho_de_banda: 1100, conexiones: 520 },
 ];
 
 const GrowthPage = () => {
@@ -35,16 +35,16 @@ const GrowthPage = () => {
         <DashboardSidebar />
         <div className="flex-1 p-6">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-1">Tendencias de Crecimiento</h1>
-            <p className="text-muted-foreground">Análisis detallado de rendimiento y ganancias</p>
+            <h1 className="text-3xl font-bold mb-1">Rendimiento de Red</h1>
+            <p className="text-muted-foreground">Análisis detallado de métricas y disponibilidad</p>
           </div>
           
           <div className="flex justify-between items-center mb-6">
-            <Tabs defaultValue="revenue" className="max-w-md">
+            <Tabs defaultValue="bandwidth" className="max-w-md">
               <TabsList>
-                <TabsTrigger value="revenue">Ingresos</TabsTrigger>
-                <TabsTrigger value="traffic">Visitantes</TabsTrigger>
-                <TabsTrigger value="conversion">Conversión</TabsTrigger>
+                <TabsTrigger value="bandwidth">Ancho de Banda</TabsTrigger>
+                <TabsTrigger value="connections">Conexiones</TabsTrigger>
+                <TabsTrigger value="latency">Latencia</TabsTrigger>
               </TabsList>
             </Tabs>
             
@@ -64,12 +64,12 @@ const GrowthPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Ingresos Totales</CardTitle>
+                <CardTitle className="text-sm font-medium">Disponibilidad Promedio</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$428,500</div>
+                <div className="text-2xl font-bold">99.4%</div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs bg-success/20 text-success px-1 rounded">+12%</span>
+                  <span className="text-xs bg-success/20 text-success px-1 rounded">+0.2%</span>
                   <span className="text-xs text-muted-foreground">vs periodo anterior</span>
                 </div>
               </CardContent>
@@ -77,12 +77,12 @@ const GrowthPage = () => {
             
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Visitantes</CardTitle>
+                <CardTitle className="text-sm font-medium">Ancho de Banda</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">18,240</div>
+                <div className="text-2xl font-bold">1.2 Gbps</div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs bg-danger/20 text-danger px-1 rounded">-5%</span>
+                  <span className="text-xs bg-success/20 text-success px-1 rounded">+15%</span>
                   <span className="text-xs text-muted-foreground">vs periodo anterior</span>
                 </div>
               </CardContent>
@@ -90,12 +90,12 @@ const GrowthPage = () => {
             
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Tasa de Conversión</CardTitle>
+                <CardTitle className="text-sm font-medium">Latencia Promedio</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">15.2%</div>
+                <div className="text-2xl font-bold">23.5 ms</div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs bg-success/20 text-success px-1 rounded">+2.5%</span>
+                  <span className="text-xs bg-success/20 text-success px-1 rounded">-2.5 ms</span>
                   <span className="text-xs text-muted-foreground">vs periodo anterior</span>
                 </div>
               </CardContent>
@@ -103,12 +103,12 @@ const GrowthPage = () => {
             
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Ticket Promedio</CardTitle>
+                <CardTitle className="text-sm font-medium">Paquetes Perdidos</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">$23.50</div>
+                <div className="text-2xl font-bold">0.08%</div>
                 <div className="flex items-center gap-2 mt-1">
-                  <span className="text-xs bg-success/20 text-success px-1 rounded">+1.8%</span>
+                  <span className="text-xs bg-success/20 text-success px-1 rounded">-0.02%</span>
                   <span className="text-xs text-muted-foreground">vs periodo anterior</span>
                 </div>
               </CardContent>
@@ -122,7 +122,7 @@ const GrowthPage = () => {
           <div className="grid grid-cols-1 gap-6">
             <Card>
               <CardHeader>
-                <CardTitle>Comparativa entre Plazas</CardTitle>
+                <CardTitle>Comparativa entre Nodos</CardTitle>
               </CardHeader>
               <CardContent>
                 <PlazaComparison data={mockComparisonData} />

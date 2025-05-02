@@ -14,30 +14,31 @@ import {
 import { 
   TrendingUp, 
   Mail, 
+  Wifi, 
   WifiOff, 
   ChartBar, 
-  ChartLine,
-  ChartPie
+  Network,
+  Server
 } from "lucide-react";
 
 export function DashboardSidebar() {
   const [activeItem, setActiveItem] = useState("general");
   
   const menuItems = [
-    { id: "general", title: "Visión General", icon: ChartPie, path: "/" },
-    { id: "growth", title: "Tendencias de Crecimiento", icon: TrendingUp, path: "/growth" },
+    { id: "general", title: "Panel Principal", icon: Network, path: "/" },
+    { id: "growth", title: "Rendimiento de Red", icon: TrendingUp, path: "/growth" },
     { id: "diagnostics", title: "Diagnóstico Técnico", icon: ChartBar, path: "/diagnostics" },
-    { id: "network", title: "Estado de Red", icon: WifiOff, path: "/network" },
-    { id: "reports", title: "Reportes Automáticos", icon: ChartLine, path: "/reports" },
-    { id: "notifications", title: "Notificaciones", icon: Mail, path: "/notifications" }
+    { id: "network", title: "Estado de Nodos", icon: WifiOff, path: "/network" },
+    { id: "reports", title: "Informes Automáticos", icon: Server, path: "/reports" },
+    { id: "notifications", title: "Alertas", icon: Mail, path: "/notifications" }
   ];
 
   return (
     <Sidebar>
       <SidebarContent>
         <div className="p-4">
-          <h2 className="text-2xl font-bold">Plaza Pulse</h2>
-          <p className="text-sm text-muted-foreground">Dashboard de Análisis</p>
+          <h2 className="text-2xl font-bold">NetMonitor</h2>
+          <p className="text-sm text-muted-foreground">Monitoring Network</p>
         </div>
         <SidebarGroup>
           <SidebarGroupLabel>Monitoreo</SidebarGroupLabel>
@@ -47,7 +48,7 @@ export function DashboardSidebar() {
                 <SidebarMenuItem key={item.id}>
                   <SidebarMenuButton
                     asChild
-                    active={activeItem === item.id}
+                    className={activeItem === item.id ? "bg-secondary" : ""}
                     onClick={() => setActiveItem(item.id)}
                   >
                     <Link to={item.path} className="flex items-center gap-2">

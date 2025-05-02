@@ -6,12 +6,12 @@ import { DiagnosticTool } from "@/components/Dashboard/DiagnosticTool";
 
 // Datos de ejemplo
 const mockNetworkData = [
-  { name: "Plaza Norte", status: "online" as const, lastUpdated: "Hace 5 min" },
-  { name: "Plaza Centro", status: "offline" as const, lastUpdated: "Hace 20 min" },
-  { name: "Plaza Sur", status: "degraded" as const, lastUpdated: "Hace 12 min" },
-  { name: "Plaza Este", status: "online" as const, lastUpdated: "Hace 3 min" },
-  { name: "Plaza Oeste", status: "online" as const, lastUpdated: "Hace 9 min" },
-  { name: "Plaza Mall", status: "degraded" as const, lastUpdated: "Hace 15 min" },
+  { name: "Nodo Principal", status: "online" as const, lastUpdated: "Hace 5 min", latency: 15 },
+  { name: "Nodo Regional Norte", status: "offline" as const, lastUpdated: "Hace 20 min", latency: 0 },
+  { name: "Nodo Regional Sur", status: "degraded" as const, lastUpdated: "Hace 12 min", latency: 120 },
+  { name: "Nodo Regional Este", status: "online" as const, lastUpdated: "Hace 3 min", latency: 25 },
+  { name: "Nodo Regional Oeste", status: "online" as const, lastUpdated: "Hace 9 min", latency: 35 },
+  { name: "Nodo Cliente Corporativo", status: "degraded" as const, lastUpdated: "Hace 15 min", latency: 85 },
 ];
 
 const NetworkPage = () => {
@@ -22,11 +22,11 @@ const NetworkPage = () => {
         <div className="flex-1 p-6">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-1">Estado de Red</h1>
-            <p className="text-muted-foreground">Monitoreo de conectividad de plazas</p>
+            <p className="text-muted-foreground">Monitoreo de conectividad de nodos</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <NetworkStatus plazas={mockNetworkData} />
+            <NetworkStatus nodes={mockNetworkData} />
             <DiagnosticTool />
           </div>
           

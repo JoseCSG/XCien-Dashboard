@@ -2,20 +2,20 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from "recharts";
 
-interface PlazaComparisonProps {
+interface NetworkComparisonProps {
   data: Array<{
     name: string;
-    ingresos: number;
-    visitantes: number;
-    conversion: number;
+    bandwidth: number;
+    latency: number;
+    availability: number;
   }>;
 }
 
-export function PlazaComparison({ data }: PlazaComparisonProps) {
+export function PlazaComparison({ data }: NetworkComparisonProps) {
   return (
     <Card className="col-span-3">
       <CardHeader>
-        <CardTitle>Comparativa entre Plazas</CardTitle>
+        <CardTitle>Comparativa de Nodos</CardTitle>
       </CardHeader>
       <CardContent className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
@@ -32,9 +32,9 @@ export function PlazaComparison({ data }: PlazaComparisonProps) {
             <YAxis />
             <Tooltip />
             <Legend />
-            <Bar dataKey="ingresos" fill="#3B82F6" name="Ingresos (miles)" />
-            <Bar dataKey="visitantes" fill="#10B981" name="Visitantes (cientos)" />
-            <Bar dataKey="conversion" fill="#F59E0B" name="Tasa de Conversión (%)" />
+            <Bar dataKey="bandwidth" fill="#3B82F6" name="Ancho de Banda (Mbps)" />
+            <Bar dataKey="latency" fill="#EF4444" name="Latencia (ms)" />
+            <Bar dataKey="availability" fill="#10B981" name="Disponibilidad (%)" />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

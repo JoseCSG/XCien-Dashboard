@@ -13,13 +13,13 @@ const DiagnosticsPage = () => {
         <div className="flex-1 p-6">
           <div className="mb-8">
             <h1 className="text-3xl font-bold mb-1">Diagnóstico Técnico</h1>
-            <p className="text-muted-foreground">Herramientas para identificar y resolver problemas</p>
+            <p className="text-muted-foreground">Herramientas para identificar y resolver problemas de red</p>
           </div>
           
           <Tabs defaultValue="tools">
             <TabsList className="mb-6">
               <TabsTrigger value="tools">Herramientas de Diagnóstico</TabsTrigger>
-              <TabsTrigger value="history">Historial de Problemas</TabsTrigger>
+              <TabsTrigger value="history">Historial de Incidentes</TabsTrigger>
             </TabsList>
             
             <TabsContent value="tools">
@@ -37,7 +37,7 @@ const DiagnosticsPage = () => {
                         <h3 className="font-semibold mb-2">Arquitectura de Red</h3>
                         <div className="grid grid-cols-2 gap-2 text-sm">
                           <div>
-                            <p className="font-medium">Tipo de Red:</p>
+                            <p className="font-medium">Topología:</p>
                             <p className="text-muted-foreground">Estrella jerárquica</p>
                           </div>
                           <div>
@@ -60,15 +60,15 @@ const DiagnosticsPage = () => {
                         <div className="grid grid-cols-2 gap-2 text-sm">
                           <div>
                             <p className="font-medium">Routers:</p>
-                            <p className="text-muted-foreground">8 (2 por plaza)</p>
+                            <p className="text-muted-foreground">8 (2 por región)</p>
                           </div>
                           <div>
                             <p className="font-medium">Switches:</p>
-                            <p className="text-muted-foreground">24 (6 por plaza)</p>
+                            <p className="text-muted-foreground">24 (6 por región)</p>
                           </div>
                           <div>
                             <p className="font-medium">Access Points:</p>
-                            <p className="text-muted-foreground">32 (8 por plaza)</p>
+                            <p className="text-muted-foreground">32 (8 por región)</p>
                           </div>
                           <div>
                             <p className="font-medium">Servidores:</p>
@@ -94,7 +94,7 @@ const DiagnosticsPage = () => {
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <p className="font-semibold">Falla de Router Principal</p>
-                          <p className="text-sm text-muted-foreground">Plaza Centro - 12/04/2025</p>
+                          <p className="text-sm text-muted-foreground">Región Centro - 12/04/2025</p>
                         </div>
                         <div className="px-2 py-1 bg-success/20 text-success text-xs rounded-md">
                           Resuelto
@@ -107,7 +107,7 @@ const DiagnosticsPage = () => {
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <p className="font-semibold">Pérdida de Conectividad</p>
-                          <p className="text-sm text-muted-foreground">Plaza Sur - 05/04/2025</p>
+                          <p className="text-sm text-muted-foreground">Región Sur - 05/04/2025</p>
                         </div>
                         <div className="px-2 py-1 bg-success/20 text-success text-xs rounded-md">
                           Resuelto
@@ -120,7 +120,7 @@ const DiagnosticsPage = () => {
                       <div className="flex justify-between items-start mb-2">
                         <div>
                           <p className="font-semibold">Problemas de Latencia</p>
-                          <p className="text-sm text-muted-foreground">Plaza Centro - Hoy</p>
+                          <p className="text-sm text-muted-foreground">Región Centro - Hoy</p>
                         </div>
                         <div className="px-2 py-1 bg-danger/20 text-danger text-xs rounded-md">
                           En progreso

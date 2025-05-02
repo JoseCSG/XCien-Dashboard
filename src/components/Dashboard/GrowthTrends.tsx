@@ -5,8 +5,8 @@ import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tool
 interface GrowthTrendsProps {
   data: Array<{
     month: string;
-    ingresos: number;
-    visitantes: number;
+    ancho_de_banda: number;
+    conexiones: number;
   }>;
 }
 
@@ -14,7 +14,7 @@ export function GrowthTrends({ data }: GrowthTrendsProps) {
   return (
     <Card className="col-span-3">
       <CardHeader>
-        <CardTitle>Tendencias de Crecimiento</CardTitle>
+        <CardTitle>Tendencias de Red</CardTitle>
       </CardHeader>
       <CardContent className="h-[300px]">
         <ResponsiveContainer width="100%" height="100%">
@@ -31,8 +31,8 @@ export function GrowthTrends({ data }: GrowthTrendsProps) {
             <XAxis dataKey="month" />
             <YAxis />
             <Tooltip />
-            <Line type="monotone" dataKey="ingresos" stroke="#3B82F6" activeDot={{ r: 8 }} name="Ingresos" />
-            <Line type="monotone" dataKey="visitantes" stroke="#10B981" name="Visitantes" />
+            <Line type="monotone" dataKey="ancho_de_banda" stroke="#3B82F6" activeDot={{ r: 8 }} name="Ancho de Banda (Mbps)" />
+            <Line type="monotone" dataKey="conexiones" stroke="#10B981" name="Conexiones Activas" />
           </LineChart>
         </ResponsiveContainer>
       </CardContent>
